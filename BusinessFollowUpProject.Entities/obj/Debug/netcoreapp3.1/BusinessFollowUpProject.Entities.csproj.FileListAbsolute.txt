@@ -1,0 +1,9 @@
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.deps.json
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.dll
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.pdb
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.csprojAssemblyReference.cache
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.AssemblyInfoInputs.cache
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.AssemblyInfo.cs
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.csproj.CoreCompileInputs.cache
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.dll
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.Entities\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.pdb

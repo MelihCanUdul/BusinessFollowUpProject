@@ -1,0 +1,47 @@
+﻿@model ReportUpdateViewModel
+@{
+    ViewData["Title"] = "UpdateReport";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<h3 style="font-weight:bold;text-align:center;color:white"><i class="fas fa-chart-line mr-2"></i>RAPOR YAZMA </h3>
+<br />
+<div class="card text-white my-3">
+    <div class="card-header" style="background-color:#00adbb">@Model.Tasks.Name</div>
+    <div class="card-body" style="color:black;">
+        <h4 class="card-title">Aciliyet:   @Model.Tasks.Urgency.Description</h4>
+        <p class="card-text">@Model.Tasks.Description</p>
+    </div>
+</div>
+
+<form method="post" asp-action="UpdateReport" class="p-3">
+
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="form-group">
+        <label asp-for="@Model.Definition" style="color:white;">TANIM :</label>
+        <span asp-validation-for="@Model.Definition" class="text-danger"></span>
+        <input asp-for="@Model.Definition" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Detail" style="color:white">DETAY :</label>
+        <span asp-validation-for="@Model.Detail" class="text-danger"></span>
+        <textarea asp-for="@Model.Detail" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <a asp-action="Index" class="btn btn-warning btn-sm"><i class="fas fa-chevron-circle-left mr-2"></i> Vazgeç</a>
+        <button type="submit" class="btn btn-info btn-sm"> <i class="fas fa-check mr-2"></i> Kaydet</button>
+
+    </div>
+</form>
+
+@section JavaScript{
+    <script src="~/lib/jqueryValidate/jquery.validate.min.js"></script>
+    <script src="~/lib/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+

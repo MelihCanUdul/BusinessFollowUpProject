@@ -1,0 +1,106 @@
+﻿@model TaskListViewModel
+@{
+    ViewData["Title"] = "AssignPersonel";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    string s = (string)ViewBag.Search;
+}
+
+<br />
+<h3 style="font-weight:bold;text-align:center;color:white"><i class="fas fa-users mr-2"></i>İŞ EMRİ ATAMA </h3>
+<br />
+<div class="row mt-2">
+    <div class="col-md-12 mb-2">
+
+        @if(!string.IsNullOrWhiteSpace(s))
+        {
+        <div class="border border-dark p-3 mb-2" style="background-color:white">
+            <strong>@s kelimesi için sonuçları görüyorsunuz.
+            <a class="text-right" asp-action="AssignPersonel" asp-route-id="@Model.Id" style="color: #00adbb;">Filtreyi Kaldır</a></strong>
+        </div>
+        }
+    <form method="get" asp-action="AssignPersonel" class="text-right">
+            <input type="text" name="s" class="form-control-sm border  border-top-0 border-left-0 border-right-0" />
+            <button type="submit" class="btn  btn-sm" style="        background-color: #00adbb;color:white">Ara</button>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div class="card ">
+            <div class="card-header">
+                <h4 class="text-center lead pt-2">Görev Bilgileri</h4>
+            </div>
+
+
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">
+                    @Model.Description
+                </p>
+                <p class="card-text">
+                    <strong> Aciliyet Durumu:</strong> <span class="badge " style="background-color: #00adbb;color:white"> @Model.Urgency.Description</span>
+                </p>
+                <p class="card-text">
+                    <small>
+                        @Model.CreationDate.ToString("D")
+                    </small>
+                </p>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-8">
+
+        @foreach (var item in (List<AppUserListViewModel>)ViewBag.Personels)
+        {
+            <div class="card  mb-3 p-2">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="~/img/@item.Picture"  style="height:200px;width:200px;" alt="@item.Name">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name @item.Surname</h5>
+                            <p class="card-text">
+                                <getTaskAppUserId app-user-id="@item.Id"></getTaskAppUserId>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">@item.Email</small>
+                                <a asp-action="PersonelAssign" asp-route-PersonelId="@item.Id" asp-route-TaskId="@Model.Id" class="btn  btn-sm float-right"style="        background-color: #00adbb;color:white" >Görevlendir</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <nav aria-label="Page navigation example" style="float:right">
+
+            <ul class="pagination">
+                @if (!string.IsNullOrWhiteSpace(s))
+                {
+                    @for (int i = 1; i <= ViewBag.Totalpage; i++)
+                    {
+                        <li class="page-item @(ViewBag.Aktivepage==i?"active":"")" style="background-color: #00adbb;">
+                            <a class="page-link" asp-action="AssignPersonel" asp-route-id="@Model.Id" asp-route-page="@i" asp-route-s="@s"style=" color: #00adbb;
+">@i</a>
+                        </li>
+                    }
+                }
+                else
+                {
+                    @for (int i = 1; i <= ViewBag.Totalpage; i++)
+                    {
+                        <li class="page-item @(ViewBag.Aktivepage==i?"active":"")" style="        background-color: #00adbb;">
+                            <a class="page-link" asp-action="AssignPersonel" asp-route-id="@Model.Id" asp-route-page="@i"style="color: #00adbb;
+">@i</a>
+                        </li>
+                    }
+                }
+
+
+
+
+            </ul>
+        </nav>
+    </div>
+</div>

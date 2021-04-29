@@ -1,0 +1,70 @@
+﻿
+@model List<TaskListAllViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+    int index = 0;
+}
+
+<br />
+<h3 style="font-weight:bold;text-align:center;color:white"><i class="fas fa-tasks mr-2"></i>TAMAMLANAN İŞLER SAYFASI </h3>
+<br />
+
+@foreach (var task in Model)
+{
+    index++;
+    <div class="card my-1">
+        <h5 class="card-header">@task.Name</h5>
+        <div class="card-body">
+            <h5 class="card-title"><span class="text-danger">Aciliyet Durumu : </span>@task.Urgency.Description</h5>
+            <p class="card-text">@task.Description</p>
+
+            <p class="text-right">
+                @if (task.Reports.Count > 0)
+                {
+                    <a class="btn btn-light btn-sm" data-toggle="collapse" href="#collapseExample-@index" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Raporlara Git<i class="fas fa-caret-down ml-2"></i>
+                        <span class="badge" style="background-color: #00adbb;color:white"
+>@task.Reports.Count</span>
+                    </a>
+
+                }
+
+            </p>
+            <div class="collapse" id="collapseExample-@index">
+
+                <table class="table table-hover table-bordered table-sm">
+                    <tr>
+                        <th>Tanım</th>
+                        <th>Detay</th>
+
+                    </tr>
+                    @foreach (var report in task.Reports)
+                    {
+                        <tr>
+                            <td>@report.Description</td>
+                            <td>@report.Detail</td>
+
+
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+<nav aria-label="Page navigation example" class="float-right">
+    <ul class="pagination">
+
+        @for (int i = 1; i <= ViewBag.TotalPage; i++)
+        {
+            <li class="page-item @(ViewBag.ActivePage==i?"active":"")">
+                <a class="page-link" asp-action="Index" asp-route-activePage="@i" style="border-color: #00adbb;background-color:white;color:#00adbb">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
+

@@ -1,0 +1,15 @@
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.dll
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.csprojAssemblyReference.cache
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.AssemblyInfoInputs.cache
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.AssemblyInfo.cs
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.deps.json
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.runtimeconfig.json
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.runtimeconfig.dev.json
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.dll
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.pdb
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\bin\Debug\netcoreapp3.1\BusinessFollowUpProject.Entities.pdb
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.csproj.CopyComplete
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.dll
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.pdb
+C:\Users\MELİH CAN UDÜL\Desktop\BusinessFollowUpProject\BusinessFollowUpProject\BusinessFollowUpProject.DataAccess\obj\Debug\netcoreapp3.1\BusinessFollowUpProject.DataAccess.genruntimeconfig.cache

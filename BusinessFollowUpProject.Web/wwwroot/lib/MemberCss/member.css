@@ -1,0 +1,35 @@
+.list-group-item.active {
+    background-color: #00adbb !important;
+    color: white !important;
+    border-color: #00adbb !important;
+
+}
+
+.list-group-item{
+    background-color:#525252;
+    color:white;
+}
+
+.list-group{
+    background-color:#525252;
+}
+#sidebar-wrapper{
+    background-color:#525252;
+}
+.navbar{
+    background-color:#525252;
+}
+#menu-toggle{
+    color:white;
+}
+.btn-outline-primary{
+    border-color:white;
+}
+#menu-toggle:hover {
+    color: white;
+    background-color: #00adbb;
+    border-color: #00adbb;
+}
+.bg-primary {
+    background-color: #00adbb !important;
+}

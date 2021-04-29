@@ -1,0 +1,36 @@
+﻿@model List<NoticeListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3 style="font-weight:bold;text-align:center;color:white"><i class="fas fa-bell mr-2"></i>BİLDİRİM SAYFASI </h3>
+<br />
+@if (Model.Count > 0)
+{
+    foreach (var notices in Model)
+    {
+        <div class="alert alert-light p-3 my-2">
+
+
+            <form method="post" asp-action="Index" class="my-1" style="border-radius:20px; ">
+                <p class="lead">
+                    <input type="hidden" name="id" value="@notices.Id" />
+                    @notices.Description
+                    <button type="submit" class="btn btn-info btn-sm float-right">Okundu</button>
+                </p>
+
+            </form>
+        </div>
+
+    }
+}
+else
+{
+    <div class="alert alert-light p-3 my-2" sstyle="border-radius:20px;">
+        <p class="lead">
+            Okunmamış bildiriminiz bulunmamaktadır.
+        </p>
+    </div>
+
+}

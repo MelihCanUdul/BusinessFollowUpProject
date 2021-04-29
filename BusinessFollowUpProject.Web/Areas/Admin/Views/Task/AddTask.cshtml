@@ -1,0 +1,44 @@
+﻿@model TaskAddViewModel
+@{
+    ViewData["Title"] = "AddTask";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<h4 class="font-weight-bold text-center" style="color:white"><i class="fas fa-tasks mr-2"></i>YENİ GÖREV EKLE </h4>
+<br />
+
+    <form style="background-color:white;border-radius:20px" asp-action="AddTask" method="post" class="w-75 mx-auto p-3 shadow">
+        <div class="form-group">
+            <label class="label font-weight-bold">AD :</label>
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <input type="text" asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="label font-weight-bold"> AÇIKLAMA :</label>
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="label font-weight-bold">ACİLİYET DURUMU SEÇİNİZ :</label>
+            <span asp-validation-for="@Model.UrgencyId" class="text-danger"></span>
+            <select asp-for="@Model.UrgencyId" class="form-control" asp-items="ViewBag.Urgencys">
+                <option hidden value="-1">Seçiniz</option>
+
+
+            </select>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+    </form>
+
+@section JavaScript{
+    <script src="~/lib/jqueryValidate/jquery.validate.min.js"></script>
+    <script src="~/lib/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
+}
+
+

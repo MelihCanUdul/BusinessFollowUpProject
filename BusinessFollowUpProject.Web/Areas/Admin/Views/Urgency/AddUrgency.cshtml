@@ -1,0 +1,26 @@
+﻿@model UrgencyAddViewModel
+@{
+    ViewData["Title"] = "AddUrgency";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br /><br /><br />
+<h3 style="font-weight:bold;text-align:center;color:white"><i class="fas fa-exclamation mr-2"></i>YENİ ACİLİYET EKLE </h3>
+<br />
+<form style="background-color:white;border-radius:20px;"class="w-75 mx-auto p-3 shadow" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Description" class="font-weight-bold"></label>
+        <span asp-validation-for="Description" class="text-danger"></span>
+        <input type="text" class="form-control" asp-for="Description" />
+    </div>
+    <button type="submit" class="btn btn-sm btn-info"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+
+@section JavaScript{
+
+    <script src="~/lib/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jqueryValidate/jquery.validate.min.js"></script>
+}

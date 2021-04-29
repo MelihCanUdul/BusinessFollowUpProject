@@ -1,0 +1,110 @@
+﻿@model List<TaskListAllViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+    int index = 0;
+}
+
+<br />
+<h3 style="font-weight:bold;text-align:center;color:white"><i class="far fa-file mr-2"></i>GELEN İŞ EMİRLERİ SAYFASI </h3>
+<br />
+@foreach (var task in Model)
+{
+    index++;
+    <div class="card my-1">
+        <h5 class="card-header">@task.Name</h5>
+        <div class="card-body">
+            <h5 class="card-title"><span class="text-danger">Aciliyet Durumu : </span>@task.Urgency.Description</h5>
+            <p class="card-text">@task.Description</p>
+
+            <p class="text-right">
+                @if (task.Reports.Count > 0)
+                {
+                    <a class="btn btn-light btn-sm" data-toggle="collapse" href="#collapseExample-@index" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Raporlara Git<i class="fas fa-caret-down ml-2"></i>
+                        <span class="badge badge-dark">@task.Reports.Count</span>
+                    </a>
+
+                }
+                else
+                {
+                    <span class="lead font-weight-bold font-italic d-block text-left mb-1">Hiç rapor yazmamışsınız, görevinizdeki ilerlemeden bahsedin.</span><br />
+                    <a asp-action="AddReport" asp-route-id="@task.Id" class="btn btn-light"><i class="fas fa-plus-circle mr-2"></i>Rapor Yaz</a>
+                }
+
+                <a href="#" class="btn btn-sm" style="background-color: #00adbb;color:white
+" data-toggle="modal" data-target="#exampleModal" data-id="@task.Id">
+                    Tamamlandı olarak işaretle
+
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample-@index">
+                <a asp-action="AddReport" asp-route-id="@task.Id" class="btn btn-light"><i class="fas fa-plus-circle mr-2"></i>Rapor Yaz</a>
+                <table class="table table-hover table-bordered table-sm">
+                    <tr>
+                        <th>Tanım</th>
+                        <th>Detay</th>
+                        <th>İşlem</th>
+                    </tr>
+                    @foreach (var report in task.Reports)
+                    {
+                        <tr>
+                            <td>@report.Description</td>
+                            <td>@report.Detail</td>
+                            <td><a asp-action="UpdateReport" asp-route-id="@report.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit mr-2"></i>Düzenle</a></td>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Uyarı</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center font-weight-bold lead">
+                Bu işlemi gerçekleştirmek istediğinizden emin misiniz?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                <button id="btnsave" type="button" class="btn" style="background-color:#00adbb;color:white">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section JavaScript{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#exampleModal").on("show.bs.modal", function (event) {
+                let triggerElement = $(event.relatedTarget);
+                let data = triggerElement.data("id");
+                $("#btnsave").click(function () {
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        url: "./WorkOrder/CompletedTask",
+                        data: { taskId: data },
+                        success: function () {
+                            window.location.reload();
+                        },
+                        error: function (error) {
+                            alert(error.responseText);
+                        }
+                    })
+                })
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+}
+
+
+<br />
+<h3 style="font-weight:bold;text-align:center;color:white"> <i class="fas fa-info mr-2"></i>BİLGİLENDİRME SAYFASI </h3>
+<br />
+<br />
+<br />
+<div class="row mt-3">
+
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <div class="card text-white text-center  mb-3" style=" background-color: #08d112;">
+
+            <div class="card-body">
+                <h4 class="card-title">Tamamladığınız Görev Sayısı</h4>
+
+                @if (ViewBag.CompletedTaskCount > 0)
+                {
+                    <p class="card-text display-4">@ViewBag.CompletedTaskCount</p>
+                    <p class="">
+                        <a asp-action="Index" asp-controller="Task" class="btn btn-light btn-sm"><i class="fas fa-chevron-circle-right"></i> İncele</a>
+                    </p>
+                }
+                else
+                {
+                    <p class="card-text lead">
+                        Herhangi bir görev tamamlamamışsınız
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="card text-white text-center  mb-3" style="background-color: #9A32CD;">
+
+            <div class="card-body">
+                <h4 class="card-title">Tamamlamanız Gereken Görev Sayısı</h4>
+
+                @if (ViewBag.NeedCompletedTaskCount > 0)
+                {
+                    <p class="card-text display-4">@ViewBag.NeedCompletedTaskCount</p>
+                    <p class="">
+                        <a asp-action="Index" asp-controller="WorkOrder" class="btn btn-light btn-sm"><i class="fas fa-chevron-circle-right"></i> İncele</a>
+                    </p>
+                }
+                else
+                {
+                    <p class="card-text lead">
+                        Herhangi bir iş emriniz bulunmamaktadır.
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <div class="card text-white text-center  mb-3" style="background-color: #FF3030">
+
+            <div class="card-body">
+                <h4 class="card-title">Okumadığınız Bildirimler</h4>
+
+                @if (ViewBag.UnReadNoticeCount > 0)
+                {
+                    <p class="card-text display-4">@ViewBag.UnReadNoticeCount</p>
+                    <p class="">
+                        <a asp-action="Index" asp-controller="Notice" class="btn btn-light btn-sm"><i class="fas fa-chevron-circle-right"></i> İncele</a>
+                    </p>
+                }
+                else
+                {
+                    <p class="card-text lead">
+                        Bütün bildirimler görüldü.
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-5">
+        <div class="card text-white  text-center mb-3" style="background-color: #FFD700">
+
+            <div class="card-body">
+                <h4 class="card-title">Yazdığınız Rapor Sayısı</h4>
+                @if (ViewBag.ReportCount > 0)
+                {
+                    <p class="card-text display-4">@ViewBag.ReportCount</p>
+                    <center> <h3 class="alert-light" style="width:30%;">Tebrikler !</h3></center>
+                }
+                else
+                {
+                    <p class="card-text lead">
+                        Herhangi bir rapor yazmamışsınız.
+                    </p>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@*ViewBag.NeedCompletedTaskCount*@

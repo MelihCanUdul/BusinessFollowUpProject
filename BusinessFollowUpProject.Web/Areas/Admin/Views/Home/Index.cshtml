@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3 style="font-weight:bold;text-align:center;color:white"> <i class="fas fa-info mr-2"></i>BİLGİLENDİRME SAYFASI </h3>
+<br />
+
+    <div class="row">
+
+
+        <div class="col-md-6"style="border-radius:20px;">
+            <div id="piechart_3d" class="w-100" style=" height: 500px; border-radius:20px;" ></div>
+        </div>
+        <div class="col-md-6"style="border-radius:20px">
+            <div id="piechart" class="w-100" style=" height: 500px;"></div>
+
+        </div>
+    </div>
+<br />
+    <div class="row " style="margin-top:-120px" >
+
+
+        <div class="col-md-3">
+            <div class="card text-white text-center  mb-3" style="        background-color: #08d112;
+">
+
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-thumbtack mr-2"></i>Atanmayı Bekleyen Görev Sayısı</h4>
+
+                    @if (ViewBag.AssignTaskCount > 0)
+                    {
+                        <p class="card-text display-4">@ViewBag.AssignTaskCount</p>
+                        <p class="">
+                            <a asp-action="Index" asp-controller="WorkOrder" class="btn btn-light btn-sm"><i class="fas fa-chevron-circle-right"></i> İncele</a>
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="card-text lead">
+                            Bütün görevlerinizde personelleriniz çalışmaktadır ya da oluşturulmuş bir göreviniz bulunmamaktadır.
+                        </p>
+                    }
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white text-center  mb-3" style="        background-color: #9A32CD;">
+
+                <div class="card-body">
+                    <h4 class="card-title"><i class="far fa-bell mr-2"></i>Okunmamış Bildirim Sayısı</h4>
+
+                    @if (ViewBag.UnReadNoticeCount > 0)
+                    {
+                        <p class="card-text display-4">@ViewBag.UnReadNoticeCount</p>
+                        <p class="">
+                            <a asp-action="Index" asp-controller="Notice" class="btn btn-light btn-sm"><i class="fas fa-chevron-circle-right"></i> İncele</a>
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="card-text lead">
+                            Bütün bildirimler görüldü.
+                        </p>
+                    }
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white text-center mb-3 " style="        background-color: #FF3030
+">
+
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-check-square mr-2"></i>Tamamlanmış Görev Sayısı</h4>
+
+                    @if (ViewBag.GetTaskCompleted > 0)
+                    {
+                        <p class="card-text display-4">@ViewBag.GetTaskCompleted</p>
+
+                    }
+                    else
+                    {
+                        <p class="card-text lead">
+                            Herhangi bir görev henüz tamamlanmamıştır.
+                        </p>
+                    }
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white text-center  mb-3" style="        background-color: #FFD700
+">
+
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-file mr-2"></i>Yazılmış Rapor Sayısı</h4>
+
+                    @if (ViewBag.TotalReportCount > 0)
+                    {
+                        <p class="card-text display-4">@ViewBag.TotalReportCount</p>
+
+                    }
+                    else
+                    {
+                        <p class="card-text lead">
+                            Henüz rapor yazılmamıştır.
+                        </p>
+                    }
+                    <br /><br /><br />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+@section JavaScript {
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            let enCokIsTamamlayan = [['Personel Adı', 'Görev Sayısı']];
+            $.ajax({
+                type: "Get",
+                url: "./Admin/Graphic/TaskMostCompleted",
+                async: false,
+                success: function (data) {
+                    let gelenObje = jQuery.parseJSON(data);
+                    $.each(gelenObje, (index, value) => {
+                        enCokIsTamamlayan.push([value.Name, value.TaskCount]);
+                    });
+                }
+            })
+            var data = google.visualization.arrayToDataTable(enCokIsTamamlayan);
+            var options = {
+                title: 'EN ÇOK İŞ TAMAMLAYAN 5 PERSONEL',
+                backgroundColor: '#FFDB8C',
+               
+                width: 700,
+                is3D: true,
+                height: 360,
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart2);
+        function drawChart2() {
+            let enCokCalisan = [['Personel Adı', 'Görev Sayısı']];
+            $.ajax({
+                type: "Get",
+                url: "./Admin/Graphic/TaskMostWorkCompleted",
+                async: false,
+                success: function (data) {
+                    let gelenObje2 = jQuery.parseJSON(data);
+                    $.each(gelenObje2, (index, value) => {
+                        enCokCalisan.push([value.Name, value.TaskCount]);
+                    });
+                }
+            });
+            var data = google.visualization.arrayToDataTable(enCokCalisan);
+            var options = {
+                title: 'ŞU AN GÖREVDE ÇALIŞAN PERSONELLER',
+                is3D: true,
+                backgroundColor: '#D2D0DD',
+                color: '#ffffff',
+                width: 700,
+                height: 360,
+                   
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
+    </script>
+}

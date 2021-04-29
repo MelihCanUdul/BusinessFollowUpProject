@@ -1,0 +1,116 @@
+﻿@model AppUserSıgnInModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_StandartLayout.cshtml";
+}
+
+<div class="main-container">
+    <div id="log-in" class="left-container log-in">
+        <img src="~/img/interra.svg" style="width:70%;" class="mb-5" />
+        <h3 class="text-sm-center mb-3 font-weight-bold">Proje Takip Sistemi Giriş</h3>
+        <form asp-action="Login" method="post" style="width:80%;">
+
+            <div class="form-group">
+
+                <span asp-validation-for="UserName" class="text-danger"></span>
+                <input asp-for="UserName" class="form-control" placeholder="Kullanıcı Adı" />
+            </div>
+            <div class="form-group">
+
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <input type="password" asp-for="Password" class="form-control" placeholder="Şifre" />
+            </div>
+            <div class="form-check">
+                <input type="checkbox" asp-for="RememberMe" class="form-check-input" />
+                <label asp-for="RememberMe" class="form-check-label mb-3">Beni Hatırla</label>
+            </div>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+
+            <input type="submit" class="btn mb-3 " style="background-color:#00adbb;color:white" value="Giriş Yap" /><br />
+
+            <span>Bir Hesabınız Yok Mu? Buradan </span><a asp-action="Register" style="font-weight: bold;color: #00adbb
+">Kayıt Ol</a><span>abilirsiniz</span>
+
+        </form>
+
+    </div>
+
+    <div class="right-container"></div>
+</div>
+
+<style>
+    body {
+        background-image: linear-gradient(to top right,#2C2C2C, #00adbb);
+        min-height: 90vh;
+        margin: 0;
+        font-family: 'Secular One', sans-serif;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #0d28c0;
+    }
+
+        a:hover {
+            color: #071561;
+        }
+
+    .main-container {
+        display: flex;
+        width: 70%;
+        height: 570px;
+        min-height: 80vh;
+        background-color: white;
+        margin: 10vh auto;
+        border-radius: 12px;
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.5);
+    }
+
+        .main-container .hidden {
+            display: none;
+        }
+
+    .login-link {
+        color: #777;
+    }
+
+        .login-link:hover {
+            color: #333;
+            cursor: pointer;
+        }
+
+    .left-container {
+        width: 50%;
+        height: 100%;
+        background-color: white;
+        border-radius: 10px 0 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    left-container > * {
+        transition: all 0.3s;
+    }
+
+    .right-container {
+        width: 70%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1519408469771-2586093c3f14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2147&q=80');
+        background-position: center;
+        background-size: cover;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .right-container {
+        width: 50%;
+    }
+</style>

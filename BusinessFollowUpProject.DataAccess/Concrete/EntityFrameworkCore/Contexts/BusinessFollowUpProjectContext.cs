@@ -12,7 +12,7 @@ namespace BusinessFollowUpProject.DataAccess.Concrete.EntityFrameworkCore.Contex
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("server = sql5104.site4now.net; database = db_a738fe_businessfollowup; User Id = db_a738fe_businessfollowup_admin; Password = melih.2580; ");
+            optionsBuilder.UseSqlServer("server=sql5104.site4now.net;database=db_a738fe_businessfollowup;User Id=db_a738fe_businessfollowup_admin;Password=melih.2580;");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
